@@ -1,6 +1,84 @@
 # 🛠️ Assembler for Simple RISC
 Welcome to the **Simple RISC Assembler**, an open-source assembler written in **C** for a custom Reduced Instruction Set Computing (RISC) architecture. This project enables **tokenization, validation, and encoding of assembly instructions** into machine-readable formats.
 
+
+## HOW TO USE THIS
+
+## Prerequisites
+### I have tested this code on mac m2, it works fine, hoping its the same to you as well ☺️☺️😅😅
+
+Before starting, you need to have the following installed on your machine:
+
+1. **GCC Compiler**: This is required to compile the C code.
+2. 
+   - You can install GCC on Linux using the following command:
+     ```bash
+     sudo apt-get install build-essential
+     ```
+   - On macOS, you can install it through Homebrew:
+     ```bash
+     brew install gcc
+     ```
+
+3. **Git** (Optional): If you want to clone the repository directly.
+
+## Setting Up the Project
+
+### Option 1: Clone the Repository Using Git
+
+If you have Git installed, you can clone the repository directly by running the following command:
+
+```bash
+git clone https://github.com/sowhatnowgithub/Assembler_simple_risc.git
+
+```
+### Option 2: Download the ZIP File
+
+If you don't have Git installed, you can download the ZIP file from the repository's page:
+
+-Navigate to the repository on GitHub.
+
+-Click the "Code" button on the right side.
+
+-Select "Download ZIP."
+
+After downloading or cloning, you will have the source files required for the assembler in the Assembler_simple_risc directory.
+
+Now navigate to the **dev** folder in **Assembler_simple_risc**.
+
+There you will see all the source c files.
+
+## Creating and Compiling Your Own Assembly Program
+
+### Step 1: Create Your Assembly File
+
+Create your own assembly program using a text file with the .txt extension
+(e.g., my_program.txt). Place this file in the project directory.
+I have given few examples programs named asm.txt, asm1.txt. Now you can use them for testing.
+### Step 2: Compile the Program
+Once you have the assembly file ready, compile the source files using the following command: 
+```
+gcc -o main main.c 
+```
+The above command will createa a executable main, which is already present in the dev folder, doing this won't affect the main executable, unless you change the main.c or any other files like token_parser.c or instruction_encoder.c these are important for the execution don't change them, unless you want to play with them 👩‍💻.
+
+### Step 3: Execute the Assembler
+To execute the assembler with your program, use the following command:
+```
+./main assembly_program.txt
+```
+## You have to pass the program file as argument for the execution or else it will throw error
+
+## Expected Output
+Once the program starts execution, you will see the tokenization process happening. If there are any errors in the code, they will be displayed during tokenization.
+
+### Step 4: Generate Binary and Integer Files
+After tokenization, the program will prompt you to enter a file name for the binary and integer files to be generated. Do not include an extension when entering the file name, as the program will automatically append the appropriate extension.
+
+### Step 5: View the Generated Files
+Once the files are generated, the program will stop execution. You can find the generated files (with .bin and .int extensions) in the current working directory.
+
+
 ## 🚀 Project Overview
 This assembler **translates Simple RISC assembly code** into integer-based binary representations, ensuring accurate instruction processing and validation.
 
@@ -8,15 +86,25 @@ This assembler **translates Simple RISC assembly code** into integer-based binar
 
 ✅ **Instruction Parsing & Tokenization**
 
-✅ **Hexadecimal & Operand Validation**
+✅ **You can use label declaration any where as long as, it is following rules, see live documentation (please scroll down you will find it)**
+
+✅ **It does not care about white space, but new line (\n) are treated as new instructions, so be careful to complete the instruction in one line, and use new line for a new instruction**
+
+✅ **Instruction Parsing & Tokenization**
 
 ✅ **Register & Label Handling**
+
+✅ **It will identify errors in immediate or label mismatch, register validation and all mentioned properties in documentation**
 
 ✅ **Binary equivalent integer file generation**
 
 ✅ **Binary File Generation**
 
 ✅ **GUI Assembler (Work in Progress 🚧)**
+
+✅ **You can add hlt at the end to specify end of program, but its not needed**
+
+
 
 
 ---
@@ -60,6 +148,7 @@ Assembly Instruction:   add r15, r2, 0x12
 Integer Encoding:       0|1|15|2|0|18
 ```
 
+- **Binary Encoding:** This is a 32 bit encoding for each instruction.
 
 - **Opcode Mapping:** Each instruction is assigned a unique integer opcode.
   
